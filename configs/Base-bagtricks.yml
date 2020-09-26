@@ -20,7 +20,7 @@ MODEL:
     CLS_LAYER: "linear"
 
   LOSSES:
-    NAME: ("CrossEntropyLoss", "TripletLoss",)
+    NAME: ("CrossEntropyLoss", )
 
     CE:
       EPSILON: 0.1
