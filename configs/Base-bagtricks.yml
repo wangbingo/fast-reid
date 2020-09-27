@@ -20,7 +20,7 @@ MODEL:
     CLS_LAYER: "linear"
 
   LOSSES:
-    NAME: ("CrossEntropyLoss", "TripletLoss",)
+    NAME: ("CrossEntropyLoss",)
 
     CE:
       EPSILON: 0.1
@@ -44,8 +44,8 @@ INPUT:
 DATALOADER:
   PK_SAMPLER: True
   NAIVE_WAY: True
-  NUM_INSTANCE: 1
-  NUM_WORKERS: 1
+  NUM_INSTANCE: 2
+  NUM_WORKERS: 2
 
 SOLVER:
   OPT: "Adam"
