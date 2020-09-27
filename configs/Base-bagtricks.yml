@@ -4,12 +4,12 @@ MODEL:
   BACKBONE:
     NAME: "build_resnet_backbone"
     NORM: "BN"
-    DEPTH: "50x"
+    DEPTH: "18x"
     LAST_STRIDE: 1
     FEAT_DIM: 2048
     WITH_IBN: False
     PRETRAIN: True
-    PRETRAIN_PATH: "./weights/resnet50-19c8e357.pth"
+    PRETRAIN_PATH: "./weights/resnet18-5c106cde.pth"
 
   HEADS:
     NAME: "EmbeddingHead"
