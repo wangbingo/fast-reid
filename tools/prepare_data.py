@@ -36,7 +36,8 @@ for line in lines:
     
     src_file_path = src_path + '/images/' + src_img_filename
 
-    dst_filename = cls_name + '_c1s1_' + src_img_filename
+    dst_filename = cls_name + '_c' + str(random.randint(1,99)) + 's1_' + src_img_filename
+    # dst_filename = cls_name + '_c1s1_' + src_img_filename
     dst_file_path = train_save_path + '/' + dst_filename
     
     shutil.move(src_file_path, dst_file_path)
