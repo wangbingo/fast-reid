@@ -46,6 +46,6 @@ for line in lines:
     if c % 10000 == 0:
         print('{} files copied.'.format(c)) 
 
-print('train_all dataset completed.  {} files copied.'.format(c))
+print('train dataset completed.  {} files copied.'.format(c))
 
 
