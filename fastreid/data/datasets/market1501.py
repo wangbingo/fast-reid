@@ -80,8 +80,8 @@ class Market1501(ImageDataset):
             pid, camid = map(int, pattern.search(img_path).groups())
             if pid == -1:
                 continue  # junk images are just ignored
-            assert 0 <= pid <= 1501  # pid == 0 means background
-            assert 1 <= camid <= 6
+            assert 0 <= pid <= 100000  # pid == 0 means background
+            assert 1 <= camid <= 100
             camid -= 1  # index starts from 0
             if is_train:
                 pid = self.dataset_name + "_" + str(pid)
