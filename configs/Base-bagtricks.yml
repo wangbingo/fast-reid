@@ -57,7 +57,7 @@ SOLVER:
   IMS_PER_BATCH: 64
 
   SCHED: "WarmupMultiStepLR"
-  STEPS: [40, 90]
+  STEPS: [40, 90, 110]
   GAMMA: 0.1
 
   WARMUP_FACTOR: 0.01
