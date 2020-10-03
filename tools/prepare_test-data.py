@@ -24,14 +24,31 @@ if not os.path.isdir(gallery_save_path):
     os.mkdir(gallery_save_path)
 
 files = glob.iglob(src_path + '/query/' "*.png")
+count_q = 0
 for file in files:
     cls_name = str(random.randint(10,9999))
     ori_filename = file.split('/')[-1]
     dst_file_name = cls_name + '_c' + str(random.randint(1,9)) + 's1_' + ori_filename
     dst_file_path = query_save_path + '/' + dst_file_name
     shutil.move(file, dst_file_path)
-    embed()
+    count_q += 1
+print('query test dataset completed.  {} files copied.'.format(count_q))
 
-print('test dataset completed.  {} files copied.'.format(c))
+files = glob.iglob(src_path + '/gallery/' "*.png")
+count_g = 0
+for file in files:
+    cls_name = str(random.randint(10,9999))
+    ori_filename = file.split('/')[-1]
+    dst_file_name = cls_name + '_c' + str(random.randint(1,9)) + 's1_' + ori_filename
+    dst_file_path = gallery_save_path + '/' + dst_file_name
+    shutil.move(file, dst_file_path)
+    count_g += 1
+print('query test dataset completed.  {} files copied.'.format(count_g))
+
+
+
+
+
+
 
 
