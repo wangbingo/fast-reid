@@ -31,12 +31,7 @@ for file in files:
 
 
 
-
-file_handle = open(src_path + "/label.txt", "r") 
-lines = file_handle.readlines()
-file_handle.close()
-
-print("There are {} lines in label.txt. Is that 72824?".format(len(lines)))
+""" 
 
 c = 0
 
@@ -60,6 +55,6 @@ for line in lines:
     if c % 10000 == 0:
         print('{} files copied.'.format(c)) 
 
-print('train dataset completed.  {} files copied.'.format(c))
+print('train dataset completed.  {} files copied.'.format(c)) """
 
 
