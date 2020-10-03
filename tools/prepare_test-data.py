@@ -26,8 +26,8 @@ if not os.path.isdir(gallery_save_path):
 files = glob.iglob(src_path + '/query/' "*.png")
 for file in files:
     cls_name = str(random.randint(10,9999))
-    ori_filename = file.split['/'][-1]
     embed()
+    ori_filename = file.split['/'][-1]
     embed()
     dst_file_name = cls_name + '_c' + str(random.randint(1,9)) + 's1_' + ori_filename
     embed()
