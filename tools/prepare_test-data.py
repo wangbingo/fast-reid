@@ -26,7 +26,7 @@ if not os.path.isdir(gallery_save_path):
 files = glob.iglob(src_path + '/query/' "*.png")
 for file in files:
     cls_name = str(random.randint(10,9999))
-    dst_file_path = cls_name + '_c' + str(random.randint(1,99)) + 's1_' + file.split["/"][-1]
+    dst_file_path = cls_name + '_c' + str(random.randint(1,99)) + 's1_' + file.split['/'][-1]
     shutil.move(file, dst_file_path)
     embed()
 
