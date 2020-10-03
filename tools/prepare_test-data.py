@@ -28,6 +28,7 @@ for file in files:
     cls_name = str(random.randint(10,9999))
     ori_filename = file.split['/'][-1]
     embed()
+    embed()
     dst_file_name = cls_name + '_c' + str(random.randint(1,9)) + 's1_' + ori_filename
     embed()
     shutil.move(file, dst_file_path)
