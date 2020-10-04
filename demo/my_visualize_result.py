@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
         img_path_list = []
         for j in range(200):                    # top-200
-            img_path, _ = dataset.gallery[index[j]]
+            img_path = dataset.gallery[index[j]][0]
             #       img_path = '../train/pytorch/gallery/99/00108716.png'
             img_path = img_path.split('/')[-1]       # get '00108716.png'
             img_path_list.append(img_path)
