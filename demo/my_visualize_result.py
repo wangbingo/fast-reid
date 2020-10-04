@@ -22,7 +22,7 @@ from fastreid.evaluation import evaluate_rank
 from fastreid.config import get_cfg
 from fastreid.utils.logger import setup_logger
 from fastreid.data import build_reid_test_loader
-from .predictor import FeatureExtractionDemo
+from predictor import FeatureExtractionDemo
 from fastreid.utils.visualizer import Visualizer
 
 cudnn.benchmark = True
