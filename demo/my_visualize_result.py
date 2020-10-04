@@ -120,8 +120,8 @@ if __name__ == '__main__':
     g_camids = np.asarray(camids[num_query:])
 
     # compute cosine distance
-    distmat = torch.mm(q_feat, g_feat.t())
-    #distmat = 1 - torch.mm(q_feat, g_feat.t())
+    #distmat = torch.mm(q_feat, g_feat.t())
+    distmat = 1 - torch.mm(q_feat, g_feat.t())
     distmat = distmat.numpy()
 
     """ result = {'qg_fea': distmat}
@@ -140,7 +140,7 @@ if __name__ == '__main__':
     for i in range(q_index):
 
         index = np.argsort(distmat[i])  #from small to large
-        index = index[::-1]
+        #index = index[::-1]
 
         query_path =  dataset.query[i][0]
         #     query_path = '../train/pytorch/query/11/7655_c1s1_00002570.png'
