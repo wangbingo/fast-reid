@@ -9,6 +9,7 @@ import logging
 import sys
 import json
 import scipy.io
+from IPython import embed
 
 import numpy as np
 import torch
@@ -101,6 +102,8 @@ if __name__ == '__main__':
     demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
     dataset = DATASET_REGISTRY.get(args.dataset_name)
 
+    embed()
+
     """ logger.info("Start extracting image features")
     feats = []
     pids = []
@@ -137,8 +140,7 @@ if __name__ == '__main__':
 
     for i in range(q_index):
 
-        index = distmat[i]
-        index = np.argsort(distmat)  #from small to large
+        index = np.argsort(distmat[i])  #from small to large
         index = index[::-1]
 
         query_path, _ =  dataset.query[i]
