@@ -99,7 +99,7 @@ if __name__ == '__main__':
     cfg = setup_cfg(args)
     test_loader, num_query = build_reid_test_loader(cfg, args.dataset_name)
     demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
-    dataset = DATASET_REGISTRY.get(args.dataset_name)(root=_root)
+    dataset = DATASET_REGISTRY.get(args.dataset_name)
 
     logger.info("Start extracting image features")
     feats = []
