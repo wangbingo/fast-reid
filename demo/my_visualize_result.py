@@ -7,6 +7,8 @@
 import argparse
 import logging
 import sys
+import json
+import scipy.io
 
 import numpy as np
 import torch
@@ -15,16 +17,16 @@ from torch.backends import cudnn
 
 sys.path.append('.')
 
+from fastreid.data.datasets import DATASET_REGISTRY
 from fastreid.evaluation import evaluate_rank
 from fastreid.config import get_cfg
 from fastreid.utils.logger import setup_logger
 from fastreid.data import build_reid_test_loader
-from predictor import FeatureExtractionDemo
+from .predictor import FeatureExtractionDemo
 from fastreid.utils.visualizer import Visualizer
 
 cudnn.benchmark = True
 logger = logging.getLogger('fastreid.visualize_result')
-
 
 def setup_cfg(args):
     # load config from file and command-line arguments
@@ -97,6 +99,7 @@ if __name__ == '__main__':
     cfg = setup_cfg(args)
     test_loader, num_query = build_reid_test_loader(cfg, args.dataset_name)
     demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
+    dataset = DATASET_REGISTRY.get(args.dataset_name)(root=_root)
 
     logger.info("Start extracting image features")
     feats = []
@@ -119,10 +122,14 @@ if __name__ == '__main__':
     distmat = 1 - torch.mm(q_feat, g_feat.t())
     distmat = distmat.numpy()
 
-    """ # predict index
-    index = np.argsort(distmat)  #from small to large
-    index = index[::-1] """
+    result = {'qg_fea': distmat}
+    scipy.io.savemat('result.mat',result)
 
+    # -----------------------split line-----------------------------------
+
+    """ result = scipy.io.loadmat('result.mat')
+    dastmat = result['qg_fea']
+    
     result_dict = {}
 
     q_index = 2900  # query total number: 2900
@@ -130,20 +137,22 @@ if __name__ == '__main__':
     for i in range(q_index):
 
         index = distmat[i]
+        index = np.argsort(distmat)  #from small to large
+        index = index[::-1]
 
-        query_path, _ = image_datasets['query'].imgs[i]
+        query_path, _ =  dataset.query[i]
         #     query_path = '../train/pytorch/query/11/00002570.png'
         query_path = query_path.split('/')[-1] # get '00002570.png'
 
         img_path_list = []
         for j in range(200):                    # top-200
-            img_path, _ = image_datasets['gallery'].imgs[index[j]]
+            img_path, _ = dataset.gallery[index[j]]
             #       img_path = '../train/pytorch/gallery/99/00108716.png'
             img_path = img_path.split('/')[-1]       # get '00108716.png'
             img_path_list.append(img_path)
 
         result_dict[query_path] = img_path_list
-        if i % 100 == 0:
+        if i % 500 == 0:
             print('{}/{} processed..........'.format(i+1, q_index))
 
     import datetime
@@ -155,3 +164,4 @@ if __name__ == '__main__':
 
     print('The result generated................')
 
+ """
