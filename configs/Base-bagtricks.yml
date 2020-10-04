@@ -9,7 +9,7 @@ MODEL:
     FEAT_DIM: 2048
     WITH_IBN: False
     PRETRAIN: True
-    PRETRAIN_PATH: "/content/fast-reid/logs/market1501/bagtricks_R50-ibn/model_0016015.pth"
+    PRETRAIN_PATH: "/content/fast-reid/weights/resnet50_ibn_a-d9d0bb7b.pth"
 
   HEADS:
     NAME: "EmbeddingHead"
@@ -50,7 +50,7 @@ DATALOADER:
 SOLVER:
   OPT: "Adam"
   MAX_ITER: 25
-  BASE_LR: 0.0001
+  BASE_LR: 0.0003
   BIAS_LR_FACTOR: 2.
   WEIGHT_DECAY: 0.0005
   WEIGHT_DECAY_BIAS: 0.0005
