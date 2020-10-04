@@ -124,6 +124,7 @@ if __name__ == '__main__':
 
     result = {'qg_fea': distmat}
     scipy.io.savemat('result.mat',result)
+    print('distmat saved as result.mat')
 
     # -----------------------split line-----------------------------------
 
