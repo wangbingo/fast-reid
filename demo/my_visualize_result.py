@@ -102,8 +102,6 @@ if __name__ == '__main__':
     demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
     # dataset = DATASET_REGISTRY.get(args.dataset_name)
 
-    embed()
-
     """ logger.info("Start extracting image features")
     feats = []
     pids = []
