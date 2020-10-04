@@ -144,7 +144,7 @@ if __name__ == '__main__':
         query_path =  dataset.query[i][0]
         #     query_path = '../train/pytorch/query/11/7655_c1s1_00002570.png'
         query_path = query_path.split('/')[-1] # get '7655_c1s1_00002570.png'
-        qurery_path = query_path.split('_')[-1] # get '00002570.png'
+        query_path = query_path.split('_')[-1] # get '00002570.png'
 
         img_path_list = []
         for j in range(200):                    # top-200
