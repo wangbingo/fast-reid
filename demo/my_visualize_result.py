@@ -120,7 +120,7 @@ if __name__ == '__main__':
     g_camids = np.asarray(camids[num_query:])
 
     # compute cosine distance
-    distmat = 1 - torch.mm(q_feat, g_feat.t())
+    #distmat = 1 - torch.mm(q_feat, g_feat.t())
     distmat = distmat.numpy()
 
     """ result = {'qg_fea': distmat}
