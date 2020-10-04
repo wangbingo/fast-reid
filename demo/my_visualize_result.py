@@ -141,7 +141,7 @@ if __name__ == '__main__':
         index = np.argsort(distmat[i])  #from small to large
         index = index[::-1]
 
-        query_path, _ =  dataset.query[i]
+        query_path =  dataset.query[i][0]
         #     query_path = '../train/pytorch/query/11/00002570.png'
         query_path = query_path.split('/')[-1] # get '00002570.png'
 
