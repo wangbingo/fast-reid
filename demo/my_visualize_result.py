@@ -101,7 +101,7 @@ if __name__ == '__main__':
     demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
     dataset = DATASET_REGISTRY.get(args.dataset_name)
 
-    logger.info("Start extracting image features")
+    """ logger.info("Start extracting image features")
     feats = []
     pids = []
     camids = []
@@ -124,11 +124,11 @@ if __name__ == '__main__':
 
     result = {'qg_fea': distmat}
     scipy.io.savemat('result.mat',result)
-    print('distmat saved as result.mat')
+    print('distmat saved as result.mat') """
 
     # -----------------------split line-----------------------------------
 
-    """ result = scipy.io.loadmat('result.mat')
+    result = scipy.io.loadmat('result.mat')
     dastmat = result['qg_fea']
     
     result_dict = {}
@@ -165,4 +165,3 @@ if __name__ == '__main__':
 
     print('The result generated................')
 
- """
