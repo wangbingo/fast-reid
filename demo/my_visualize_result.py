@@ -139,7 +139,7 @@ if __name__ == '__main__':
 
     for i in range(q_index):
 
-        index = np.argsort(distmat[i])  #from small to large
+        index = np.argsort(distmat[i])  #from large to small
         #index = index[::-1]
 
         query_path =  dataset.query[i][0]
