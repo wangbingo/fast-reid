@@ -9,7 +9,7 @@ MODEL:
     FEAT_DIM: 2048
     WITH_IBN: False
     PRETRAIN: True
-    PRETRAIN_PATH: "./weights/resnet50_ibn_a-d9d0bb7b.pth"
+    PRETRAIN_PATH: "/content/fast-reid/logs/market1501/bagtricks_R50-ibn/model_0016015.pth"
 
   HEADS:
     NAME: "EmbeddingHead"
