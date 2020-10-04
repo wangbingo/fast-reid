@@ -129,7 +129,7 @@ if __name__ == '__main__':
     # -----------------------split line-----------------------------------
 
     result = scipy.io.loadmat('result.mat')
-    dastmat = result['qg_fea']
+    distmat = result['qg_fea']
     
     result_dict = {}
 
