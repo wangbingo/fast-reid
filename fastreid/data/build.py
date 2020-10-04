@@ -14,6 +14,7 @@ from . import samplers
 from .common import CommDataset
 from .datasets import DATASET_REGISTRY
 from .transforms import build_transforms
+from IPython import embed
 
 _root = os.getenv("FASTREID_DATASETS", "datasets")
 
@@ -64,6 +65,8 @@ def build_reid_test_loader(cfg, dataset_name):
     cfg.defrost()
 
     dataset = DATASET_REGISTRY.get(dataset_name)(root=_root)
+    embed()
+
     if comm.is_main_process():
         dataset.show_test()
     test_items = dataset.query + dataset.gallery
