@@ -124,14 +124,14 @@ if __name__ == '__main__':
     distmat = 1 - torch.mm(q_feat, g_feat.t())
     distmat = distmat.numpy()
 
-    """ result = {'qg_fea': distmat}
+    result = {'qg_fea': distmat}
     scipy.io.savemat('result.mat',result)
     print('distmat saved as result.mat')
 
     # -----------------------split line-----------------------------------
 
-    result = scipy.io.loadmat('result.mat')
-    distmat = result['qg_fea'] """
+    # result = scipy.io.loadmat('result.mat')
+    # distmat = result['qg_fea']
     
     result_dict = {}
 
