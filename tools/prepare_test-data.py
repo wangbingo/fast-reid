@@ -43,7 +43,7 @@ for file in files:
     dst_file_path = gallery_save_path + '/' + dst_file_name
     shutil.move(file, dst_file_path)
     count_g += 1
-print('query test dataset completed.  {} files copied.'.format(count_g))
+print('gallery test dataset completed.  {} files copied.'.format(count_g))
 
 
 
