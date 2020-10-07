@@ -3,7 +3,7 @@ MODEL:
 
   BACKBONE:
     NAME: "build_resnet_backbone"
-    NORM: "BN"
+    NORM: "GN"
     DEPTH: "50x"
     LAST_STRIDE: 1
     FEAT_DIM: 2048
