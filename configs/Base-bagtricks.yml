@@ -9,7 +9,7 @@ MODEL:
     FEAT_DIM: 2048
     WITH_IBN: False
     PRETRAIN: True
-    PRETRAIN_PATH: "/content/fast-reid/weights/msmt_sbs_S50.pth"
+    PRETRAIN_PATH: "/content/fast-reid/weights/market_bot_S50.pth"
 
   HEADS:
     NAME: "EmbeddingHead"
@@ -50,7 +50,7 @@ DATALOADER:
 SOLVER:
   OPT: "Adam"
   MAX_ITER: 25
-  BASE_LR: 0.00035
+  BASE_LR: 0.001
   BIAS_LR_FACTOR: 2.
   WEIGHT_DECAY: 0.0005
   WEIGHT_DECAY_BIAS: 0.0005
