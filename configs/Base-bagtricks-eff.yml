@@ -4,9 +4,9 @@ MODEL:
   BACKBONE:
     NAME: "build_effnet_backbone"
     NORM: "BN"
-    DEPTH: "b1"
+    DEPTH: "b4"
     LAST_STRIDE: 1
-    FEAT_DIM: 1280
+    FEAT_DIM: 1792
     WITH_IBN: False
     PRETRAIN: True
 
@@ -53,7 +53,7 @@ SOLVER:
   BIAS_LR_FACTOR: 2.
   WEIGHT_DECAY: 0.0005
   WEIGHT_DECAY_BIAS: 0.0005
-  IMS_PER_BATCH: 64
+  IMS_PER_BATCH: 32
 
   SCHED: "WarmupMultiStepLR"
   STEPS: [10, 20]

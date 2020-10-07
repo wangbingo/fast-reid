@@ -4,4 +4,4 @@ DATASETS:
   NAMES: ("Market1501",)
   TESTS: ("Market1501",)
 
-OUTPUT_DIR: "logs/market1501/bagtricks_effnet-b1"
+OUTPUT_DIR: "logs/market1501/bagtricks_effnet-b4"
