@@ -3,13 +3,12 @@ MODEL:
 
   BACKBONE:
     NAME: "build_resnet_backbone"
-    NORM: "GN"
+    NORM: "BN"
     DEPTH: "50x"
     LAST_STRIDE: 1
     FEAT_DIM: 2048
     WITH_IBN: False
     PRETRAIN: True
-    PRETRAIN_PATH: "/content/fast-reid/weights/market_bot_S50.pth"
 
   HEADS:
     NAME: "EmbeddingHead"
