@@ -6,7 +6,7 @@ MODEL:
     NORM: "BN"
     DEPTH: "b1"
     LAST_STRIDE: 1
-    FEAT_DIM: 1792
+    FEAT_DIM: 1280
     WITH_IBN: False
     PRETRAIN: True
 
@@ -43,8 +43,8 @@ INPUT:
 DATALOADER:
   PK_SAMPLER: True
   NAIVE_WAY: True
-  NUM_INSTANCE: 2
-  NUM_WORKERS: 2
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 4
 
 SOLVER:
   OPT: "Adam"
