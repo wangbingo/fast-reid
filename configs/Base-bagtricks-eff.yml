@@ -4,7 +4,7 @@ MODEL:
   BACKBONE:
     NAME: "build_effnet_backbone"
     NORM: "BN"
-    DEPTH: "b4"
+    DEPTH: "b1"
     LAST_STRIDE: 1
     FEAT_DIM: 1792
     WITH_IBN: False
