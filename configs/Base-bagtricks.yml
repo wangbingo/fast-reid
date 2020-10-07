@@ -36,7 +36,7 @@ INPUT:
   SIZE_TRAIN: [256, 128]
   SIZE_TEST: [256, 128]
   REA:
-    ENABLED: False
+    ENABLED: True
     PROB: 0.5
     MEAN: [123.675, 116.28, 103.53]
   DO_PAD: True
