@@ -2,12 +2,12 @@ MODEL:
   META_ARCHITECTURE: "Baseline"
 
   BACKBONE:
-    NAME: "build_resnest_backbone"
+    NAME: "build_resnext_backbone"
     NORM: "BN"
     DEPTH: "50x"
     LAST_STRIDE: 1
     FEAT_DIM: 2048
-    WITH_IBN: False
+    WITH_IBN: True
     PRETRAIN: True
 
   HEADS:
