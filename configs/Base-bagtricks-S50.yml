@@ -2,7 +2,7 @@ MODEL:
   META_ARCHITECTURE: "Baseline"
 
   BACKBONE:
-    NAME: "build_resnet_backbone"
+    NAME: "build_resnest_backbone"
     NORM: "BN"
     DEPTH: "50x"
     LAST_STRIDE: 1
