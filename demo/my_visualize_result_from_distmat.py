@@ -98,8 +98,8 @@ if __name__ == '__main__':
     args = get_parser().parse_args()
     logger = setup_logger()
     cfg = setup_cfg(args)
-    """ test_loader, num_query, dataset = build_reid_test_loader(cfg, args.dataset_name)
-    demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
+    test_loader, num_query, dataset = build_reid_test_loader(cfg, args.dataset_name)
+    """ demo = FeatureExtractionDemo(cfg, parallel=args.parallel)
     # dataset = DATASET_REGISTRY.get(args.dataset_name)
 
     logger.info("Start extracting image features")
