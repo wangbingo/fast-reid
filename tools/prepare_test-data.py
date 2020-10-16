@@ -4,7 +4,7 @@ import glob
 from IPython import embed
 
 # You only need to change this line to your dataset download path
-src_path = '../image_A'
+src_path = '../image_B'
 
 if not os.path.isdir(src_path):
     print('please change the src_path')
