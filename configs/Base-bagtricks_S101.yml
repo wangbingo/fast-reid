@@ -33,7 +33,7 @@ MODEL:
 
 INPUT:
   SIZE_TRAIN: [256, 128]
-  SIZE_TEST: [256, 128]
+  SIZE_TEST: [384, 192]
   REA:
     ENABLED: True
     PROB: 0.2
