@@ -20,7 +20,9 @@ $ unzip train.zip && unzip image_B.zip
 
 $ cd fast-reid  &&  python tools/prepare_train-data.py &&
 python tools/prepare_test-data.py
+
 ###将数据组织成market1501形式，便于直接利用框架
+
 $ mkdir -p  fast-reid/datasets/Market-1501-v15.09.15 && \
 
  mv fast-reid/datasets/pclreid/train  fast-reid/datasets/Market-1501-v15.09.15 && \
@@ -36,12 +38,14 @@ $ mv /content/fast-reid/datasets/Market-1501-v15.09.15/gallery  /content/fast-re
 $ cd fast-reid  && python ./tools/train_net.py --config-file ./configs/Market1501/sbs_S101.yml MODEL.DEVICE "cuda:0" 
 
 ###训练完成后，权重文件保存在fast-reid/logs/market1501/sbs_S101
+
 由于权重文件较大，故存放在百度盘供提取。
 
 链接: https://pan.baidu.com/s/10gM1TKk2LuNUw086DKCWUg  密码: 1vr6
 
 ## 测试（test）
 $ cd fast-reid/ && sh demo/my_run_demo.sh
-###测试完成后，结果文件保存在fast-reid/result_2020-10-14-08-56-35.json
+
+###测试完成后，结果文件保存在fast-reid/result_2020-10-14-08-56-35.json(时间为当前系统时间)
 
 
