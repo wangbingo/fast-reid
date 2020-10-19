@@ -1,54 +1,47 @@
-# FastReID
+## 方案简介
+本方案基于京东FastReID框架实现。
+网络采用ResNest101, 损失函数为circle-loss + triplet-loss.
 
-FastReID is a research platform that implements state-of-the-art re-identification algorithms. It is a groud-up rewrite of the previous version, [reid strong baseline](https://github.com/michuanhaohao/reid-strong-baseline).
+## 系统安装
+$ conda install pytorch==1.6.0 torchvision tensorboard -c pytorch
 
-## What's New
+$ git clone https://github.com/wangbingo/fast-reid.git
 
-- [Sep 2020] Added the person attribute recognition code based fastreid. See `projects/attribute_recognition`.
-- [Sep 2020] Automatic Mixed Precision training is supported with pytorch1.6 built-in `torch.cuda.amp`. Set `cfg.SOLVER.AMP_ENABLED=True` to switch it on.
-- [Aug 2020] [Model Distillation](https://github.com/JDAI-CV/fast-reid/tree/master/projects/DistillReID) is supported, thanks for [guan'an wang](https://github.com/wangguanan)'s contribution.
-- [Aug 2020] ONNX/TensorRT converter is supported.
-- [Jul 2020] Distributed training with multiple GPUs, it trains much faster.
-- [Jul 2020] `MAX_ITER` in config means `epoch`, it will auto scale to maximum iterations.
-- Includes more features such as circle loss, abundant visualization methods and evaluation metrics, SoTA results on conventional, cross-domain, partial and vehicle re-id, testing on multi-datasets simultaneously, etc.
-- Can be used as a library to support [different projects](https://github.com/JDAI-CV/fast-reid/tree/master/projects) on top of it. We'll open source more research projects in this way.
-- Remove [ignite](https://github.com/pytorch/ignite)(a high-level library) dependency and powered by [PyTorch](https://pytorch.org/).
+$ cd fast-reid
 
-We write a [chinese blog](https://l1aoxingyu.github.io/blogpages/reid/2020/05/29/fastreid.html) about this toolbox.
+$ pip install -r requirements
 
-## Installation
+$ cd fast-reid/fastreid/evaluation/rank_cylib && make all
 
-See [INSTALL.md](https://github.com/JDAI-CV/fast-reid/blob/master/docs/INSTALL.md).
+## 数据准备
+$ cp XXXX/train.zip ./ && cp XXXX/image_B.zip ./
 
-## Quick Start
+$ unzip train.zip && unzip image_B.zip
 
-The designed architecture follows this guide [PyTorch-Project-Template](https://github.com/L1aoXingyu/PyTorch-Project-Template), you can check each folder's purpose by yourself.
+$ cd fast-reid  &&  python tools/prepare_train-data.py &&
+python tools/prepare_test-data.py
+###将数据组织成market1501形式，便于直接利用框架
+$ mkdir -p  fast-reid/datasets/Market-1501-v15.09.15 && \
 
-See [GETTING_STARTED.md](https://github.com/JDAI-CV/fast-reid/blob/master/docs/GETTING_STARTED.md).
+ mv fast-reid/datasets/pclreid/train  fast-reid/datasets/Market-1501-v15.09.15 && \
+ 
+ mv  fast-reid/datasets/Market-1501-v15.09.15/train fast-reid/datasets/Market-1501-v15.09.15/bounding_box_train
 
-Learn more at out [documentation](). And see [projects/](https://github.com/JDAI-CV/fast-reid/tree/master/projects) for some projects that are build on top of fastreid.
+$ mv /content/fast-reid/datasets/pclreid/*  /content/fast-reid/datasets/Market-1501-v15.09.15
 
-## Model Zoo and Baselines
+$ mv /content/fast-reid/datasets/Market-1501-v15.09.15/gallery  /content/fast-reid/datasets/Market-1501-v15.09.15/bounding_box_test
 
-We provide a large set of baseline results and trained models available for download in the [Fastreid Model Zoo](https://github.com/JDAI-CV/fast-reid/blob/master/docs/MODEL_ZOO.md).
 
-## Deployment
+## 训练
+$ cd fast-reid  && python ./tools/train_net.py --config-file ./configs/Market1501/sbs_S101.yml MODEL.DEVICE "cuda:0" 
 
-We provide some examples and scripts to convert fastreid model to Caffe, ONNX and TensorRT format in [Fastreid deploy](https://github.com/JDAI-CV/fast-reid/blob/master/tools/deploy).
+###训练完成后，权重文件保存在fast-reid/logs/market1501/sbs_S101
+由于权重文件较大，故存放在百度盘供提取。
 
-## License
+链接: https://pan.baidu.com/s/10gM1TKk2LuNUw086DKCWUg  密码: 1vr6
 
-Fastreid is released under the [Apache 2.0 license](https://github.com/JDAI-CV/fast-reid/blob/master/LICENSE).
+## 测试（test）
+$ cd fast-reid/ && sh demo/my_run_demo.sh
+###测试完成后，结果文件保存在fast-reid/result_2020-10-14-08-56-35.json
 
-## Citing Fastreid
 
-If you use Fastreid in your research or wish to refer to the baseline results published in the Model Zoo, please use the following BibTeX entry.
-
-```BibTeX
-@article{he2020fastreid,
-  title={FastReID: A Pytorch Toolbox for General Instance Re-identification},
-  author={He, Lingxiao and Liao, Xingyu and Liu, Wu and Liu, Xinchen and Cheng, Peng and Mei, Tao},
-  journal={arXiv preprint arXiv:2006.02631},
-  year={2020}
-}
-```
